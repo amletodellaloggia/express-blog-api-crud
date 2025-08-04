@@ -1,5 +1,5 @@
 // Importo l'array dei post
-const posts = require('../routers/posts.js');
+const posts = require(`../data/posts.js`);
 
 // Index
 const index = (req, res) => {
@@ -10,7 +10,7 @@ const index = (req, res) => {
 const show = (req, res) => {
 	const id = parseInt(req.params.id);
 	const post = posts.find(item => item.id === id);
-	res.json(drink);
+	res.json(post);
 };
 
 // Create
@@ -32,8 +32,17 @@ const modify = (req, res) => {
 
 // Destroy
 const destroy = (req, res) => {
-	const id = parseInt(req.params.id);
-	const post = posts.find(item => item.id === id);
-	posts.splice(post.indexOf(post), 1);
-	res.sendStatus(204);
+  const id = parseInt(req.params.id);
+  const post = posts.find(item => item.id === id);
+  posts.splice(posts.indexOf(post), 1);
+  res.sendStatus(204);
+};
+
+module.exports = {
+  index,
+  show,
+  create,
+  update,
+  modify,
+  destroy
 };

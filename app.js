@@ -4,7 +4,7 @@ const app = express();
 const port = 3000;
 
 // Importo il file router per i post
-const postsRouter = require(`./routers/posts.js`);
+const postsRouter = require(`./routers/postsRouter.js`);
 
 // Definisco il middleware per le img (file statici)
 app.use(express.static(`imgs/`));

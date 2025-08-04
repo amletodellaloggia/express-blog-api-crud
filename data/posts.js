@@ -1,10 +1,3 @@
-// Importo express e definisco router
-const express = require(`express`);
-const router = express.Router();
-
-// Importo il controller per i post
-const postsController = require('../controllers/postsController.js')
-
 const posts = [
   {
     id: 1,
@@ -56,25 +49,3 @@ const posts = [
     ],
   },
 ];
-
-// Definisco rotte dei posts
-// Index
-router.get("/");
-
-// Show
-router.get("/:id");
-
-// Create
-router.post("/");
-
-// Update
-router.put("/:id");
-
-// Patch
-router.patch("/:id");
-
-// Delete
-router.delete("/:id");
-
-// Esporto il router
-module.exports = router;
