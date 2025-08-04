@@ -2,6 +2,9 @@
 const express = require(`express`);
 const router = express.Router();
 
+// Importo il controller per i post
+const postsController = require('../controllers/postsController.js')
+
 const posts = [
   {
     id: 1,
@@ -56,42 +59,22 @@ const posts = [
 
 // Definisco rotte dei posts
 // Index
-router.get("/", (req, res) => {
-  // res.send("Lista dei post");
-  // Bonus: restituisco la lista dei post in json
-  res.json(posts);
-});
-// Show
-router.get("/:id", (req, res) => {
-  //     res.send(`Dettaglio del post con ID: ${req.params.id}`);
-  // });
+router.get("/");
 
-  // Bonus: restituisco un singolo post in json
-  const id = parseInt(req.params.id);
-  let result;
-  for (let i = 0; i < posts.length; i++) {
-    if (posts[i].id === id) {
-      result = posts[i];
-    }
-  }
-  res.json(result);
-});
+// Show
+router.get("/:id");
+
 // Create
-router.post("/", (req, res) => {
-  res.send("Creazione nuovo post");
-});
+router.post("/");
+
 // Update
-router.put("/:id", (req, res) => {
-  res.send(`Modifica totale del post con ID: ${req.params.id}`);
-});
+router.put("/:id");
+
 // Patch
-router.patch("/:id", (req, res) => {
-  res.send(`Modifica parziale del post con ID: ${req.params.id}`);
-});
+router.patch("/:id");
+
 // Delete
-router.delete("/:id", (req, res) => {
-  res.send(`Cancellazione del post con ID: ${req.params.id}`);
-});
+router.delete("/:id");
 
 // Esporto il router
 module.exports = router;
