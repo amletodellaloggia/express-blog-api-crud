@@ -36,6 +36,7 @@ const destroy = (req, res) => {
   const post = posts.find(item => item.id === id);
   posts.splice(posts.indexOf(post), 1);
   res.sendStatus(204);
+  console.log(posts);
 };
 
 module.exports = {
