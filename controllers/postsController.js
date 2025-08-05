@@ -23,6 +23,11 @@ const show = (req, res) => {
 	const id = parseInt(req.params.id);
 	const post = posts.find(item => item.id === id);
 	// res.send(`Dettaglio del post con ID: ${id}`);
+
+  // Bonus:
+  // Verifico se il post non esiste e restituisco errore 404
+  if(!post){ res.status(404).json({error: "404 - Pagina non trovata!", message: "Il post non è presente!"})
+  };
   res.json(post);
 };
 
