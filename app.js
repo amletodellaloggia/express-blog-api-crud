@@ -9,6 +9,9 @@ const postsRouter = require(`./routers/postsRouter.js`);
 // Definisco il middleware per le img (file statici)
 app.use(express.static(`imgs/`));
 
+// Utilizzo il body parser per recuperare le informazioni della richiesta
+app.use(express.json());
+
 // Definisco rotta base
 app.get("/", (req, res) => {});
 

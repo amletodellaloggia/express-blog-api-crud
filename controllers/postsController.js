@@ -33,6 +33,9 @@ const show = (req, res) => {
 
 // Create
 const create = (req, res) => {
+  // Nuovo ID per nuovo post
+  const newId = posts[posts.length -1].id +1;
+  console.log(newId);
 	res.send('Creazione nuovo post');
 };
 
