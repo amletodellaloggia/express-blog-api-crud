@@ -82,8 +82,23 @@ const update = (req, res) => {
 // Modify
 const modify = (req, res) => {
 	const id = parseInt(req.params.id);
-	res.send(`Modifica parziale del post con ID:${id}`);
+  // Recupero post dall'array
+  const post = posts.find(item => item.id === id);
+  
+  // Verifico se il post non esiste e restituisco errore 404
+  if(!post){
+    return res.status(404).json({error: "404 - Pagina non trovata!", message: "Il post non è presente!"})
+  };
+
+  // Dati da modificare
+
+  post.tags = req.body.tags;
+  console.log(posts);
+	res.json(post);
 };
+
+// 	res.send(`Modifica parziale del post con ID:${id}`);
+// };
 
 // Destroy
 const destroy = (req, res) => {
