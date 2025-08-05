@@ -35,7 +35,26 @@ const show = (req, res) => {
 const create = (req, res) => {
   // Nuovo ID per nuovo post
   const newId = posts[posts.length -1].id +1;
-  console.log(newId);
+
+  // Implemento logica e parametri da considerare nell'inserimento
+  // Destructuring del body richiesta
+  const { title, content, image, tags} = req.body;
+
+  // Nuovo oggetto newPost
+  const newPost = {
+    id: newId,
+    title,
+    content,
+    image,
+    tags
+  };
+  
+  // Pusho l'oggetto creato in posts
+  posts.push(newPost);
+  console.log(posts);
+  res.status(201).json(newPost);
+
+  // console.log(newId);
 	res.send('Creazione nuovo post');
 };
 
