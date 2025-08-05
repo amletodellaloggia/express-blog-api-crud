@@ -62,7 +62,21 @@ const create = (req, res) => {
 // Update
 const update = (req, res) => {
 	const id = parseInt(req.params.id);
-	res.send(`Modifica totale del post con ID:${id}`);
+  // Recupero post dall'array
+  const post = posts.find(item => item.id === id);
+  
+  // Verifico se il post non esiste e restituisco errore 404
+  if(!post){
+    return res.status(404).json({error: "404 - Pagina non trovata!", message: "Il post non è presente!"})
+  };
+
+  // Dati da modificare
+  post.title = req.body.title;
+  post.content = req.body.content;
+  post.image = req.body.image;
+  post.tags = req.body.tags;
+
+	res.send(post);
 };
 
 // Modify
