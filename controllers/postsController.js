@@ -38,7 +38,7 @@ const destroy = (req, res) => {
   const post = posts.find(item => item.id === id);
   posts.splice(posts.indexOf(post), 1);
   res.sendStatus(204);
-  res.send(`Cancellazione del post con ID:${id}`)
+  // res.send(`Cancellazione del post con ID:${id}`)
   console.log(posts);
 };
 
