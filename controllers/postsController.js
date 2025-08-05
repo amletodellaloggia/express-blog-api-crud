@@ -4,7 +4,18 @@ const posts = require(`../data/posts.js`);
 // Index
 const index = (req, res) => {
   // res.send(`Invio dell'elenco dei post`)
-  res.json(posts);
+
+// Bonus:
+const title = req.query.title;
+// Array post filtrati
+let filteredPosts = posts;
+// Verifico valore di title e nel caso lo filtro
+if(title){
+  filteredPosts = posts.filter(item => item.title.toLowerCase() === title.toLowerCase());
+}
+
+  // res.json(posts);
+  res.json(filteredPosts);
 };
 
 // Show
