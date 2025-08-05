@@ -48,14 +48,15 @@ const create = (req, res) => {
     image,
     tags
   };
-  
+
   // Pusho l'oggetto creato in posts
   posts.push(newPost);
   console.log(posts);
   res.status(201).json(newPost);
 
+  // res.json(post);
   // console.log(newId);
-	res.send('Creazione nuovo post');
+	// res.send('Creazione nuovo post');
 };
 
 // Update
