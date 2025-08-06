@@ -7,6 +7,9 @@ const index = (req, res) => {
 
 // Bonus:
 const title = req.query.title;
+
+// definitelyNotAnError.get(); // Per testare errori
+
 // Array post filtrati
 let filteredPosts = posts;
 // Verifico valore di title e nel caso lo filtro
