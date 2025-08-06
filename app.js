@@ -5,9 +5,10 @@ const port = 3000;
 
 // Importo il file router per i post
 const postsRouter = require(`./routers/postsRouter.js`);
-
 // Definisco il middleware per le img (file statici)
 app.use(express.static(`imgs/`));
+// Importo il middleware notFound
+const notFound = require("./middlewares/notFound.js");
 
 // Utilizzo il body parser per recuperare le informazioni della richiesta
 app.use(express.json());
@@ -17,6 +18,9 @@ app.get("/", (req, res) => {});
 
 // Aggiungo il router
 app.use("/posts", postsRouter);
+
+// Aggiungo il middleware notFound
+app.use(notFound);
 
 // Faccio in modo che app rimanga in ascolto sulla porta definita
 app.listen(port, () => {
